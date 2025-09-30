@@ -15,7 +15,7 @@ const fetchPosts = async () => {
     const res = await getPosts();
     // Take only first 12 posts for better display
     console.log(res);
-    posts.value = res.data(0, 12);
+    posts.value = res.data.slice(0, 12);
   } catch (err) {
     error.value = 'Failed to load posts. Please try again.';
     console.error('Error fetching posts:', err);
